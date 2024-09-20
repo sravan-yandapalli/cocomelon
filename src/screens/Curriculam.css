@@ -1,0 +1,48 @@
+.curriculum-container {
+    padding: 20px;
+    background-color: #f7f7f7;
+  }
+  
+  .holiday-list {
+    margin: 20px 0;
+  }
+  
+  .holiday-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .holiday-list li {
+    padding: 5px 0;
+  }
+  
+  .curriculum-weeks {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .curriculum-week {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .curriculum-week h3 {
+    color: #333;
+  }
+  
+  .curriculum-week p {
+    margin: 5px 0;
+  }
+  
+  .curriculum-week ul {
+    padding-left: 20px;
+    list-style-type: disc;
+  }
+  
+  .curriculum-week ul li {
+    margin-bottom: 5px;
+  }
+  
