@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
-import logo from '../assets/logo.png'
+import logo from '../assets/logo.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,13 +22,23 @@ const Navbar = () => {
         </div>
       </div>
       <ul className={`navbar-links ${isMenuOpen ? 'active' : ''}`}>
-        <li><a href="#">Programs</a></li>
-        <li><a href="#">Curriculam</a></li>
-        <li><a href="#">Admissions</a></li>
-        <li><a href="#">Activities</a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/curriculum">Curriculum</Link>
+        </li>
+        <li>
+          <Link to="/admissions">Admissions</Link>
+        </li>
+        <li>
+          <Link to="/activities">Activities</Link>
+        </li>
+        <li>
+          <Link to="/contact">Contact Us</Link>
+        </li>
       </ul>
-      <a href="#enroll-now" className="enroll-btn">Enroll Now</a>
+      <Link to="/enroll-now" className="enroll-btn">Enroll Now</Link>
       <div className={`hamburger ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu}>
         <div></div>
         <div></div>

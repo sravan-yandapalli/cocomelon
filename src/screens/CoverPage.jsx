@@ -11,10 +11,11 @@ const CoverPage = () => {
       <div className="contact-info">
         <h1>COCOMELON</h1>
         <h2>Pre School & Day Care</h2>
-        <p>51-8, 57/2, 60 Feet road, Eenadu, Nakkavanipalem,<br /> Visakhapatnam, Andhra Pradesh 530013</p>
+        <div className='info'><p>51-8, 57/2, 60 Feet road, Eenadu, Nakkavanipalem,<br /> Visakhapatnam, Andhra Pradesh 530013</p>
         <p><strong>Contact:</strong></p>
         <p>+91 6302164335<br />+91 7659011189</p>
         <p><strong>Timings:</strong> 9:30 am to 12:30 pm</p>
+        </div>
       </div>
       <div className="about-us">
         <h2>ABOUT US</h2>
@@ -26,7 +27,7 @@ const CoverPage = () => {
       </div>
       {/* Enroll Button Section */}
       <div className="enroll-section">
-        <a href="#enroll" className="enroll-btn">Enroll Now</a>
+        <a href="#enroll" className="enroll-butn">Enroll Now</a>
       </div>
     </div>
   );
