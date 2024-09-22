@@ -20,7 +20,7 @@
 
     <!-- Java Version Configuration -->
     <properties>
-        <java.version>20</java.version> <!-- Update Java version -->
+        <java.version>17</java.version> <!-- Update Java version -->
     </properties>
 
     <dependencies>
