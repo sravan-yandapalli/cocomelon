@@ -9,7 +9,7 @@ COPY backend/preschool/pom.xml ./
 RUN mvn dependency:go-offline -B
 
 # Copy the rest of the project files
-COPY backend/preschool/src ./src     
+COPY backend/preschool/src ./src      
 # Package the Spring Boot application
 RUN mvn clean package -DskipTests
 
