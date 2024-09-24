@@ -5,7 +5,8 @@ FROM maven:3.8.4-openjdk-17 AS build
 WORKDIR /app
 
 # Copy the pom.xml file and download the dependencies
-COPY backend/preschool/pom.xml ./
+COPY backend/preschool/pom.xml ./preschool/
+WORKDIR /app/preschool
 RUN mvn dependency:go-offline -B
 
 # Copy the rest of the project files
@@ -21,13 +22,14 @@ FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 
 # Copy the jar file from the previous build stage
-COPY --from=build /app/target/*.jar app.jar
+COPY --from=build /app/preschool/target/*.jar app.jar
 
 # Expose the port your Spring Boot application will run on (default is 8080)
 EXPOSE 8080
 
 # Command to run the jar file
 ENTRYPOINT ["java", "-jar", "app.jar"]
+
 
 
 
