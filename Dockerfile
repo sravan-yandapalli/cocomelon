@@ -1,34 +1,39 @@
-# Stage 1: Build the Spring Boot application
-FROM maven:3.8.4-openjdk-17 AS build
-
-# Set the working directory inside the container
+# Stage 1: Build the frontend
+FROM node:18 AS frontend-build
 WORKDIR /app
 
-# Copy the pom.xml file and download the dependencies
-COPY backend/preschool/pom.xml ./preschool/
-WORKDIR /app/preschool
-RUN mvn dependency:go-offline -B
+# Copy package files and install dependencies
+COPY public/package.json ./
+COPY public/package-lock.json ./
+RUN npm install
 
-# Copy the rest of the project files
-COPY backend/preschool/src ./src
+# Copy the frontend source files and build
+COPY public/ ./
+RUN npm run build
 
-# Package the Spring Boot application
+# Stage 2: Build the backend
+FROM maven:3.9.0-openjdk-17 AS backend-build
+WORKDIR /app
+
+# Copy pom.xml and install dependencies
+COPY pom.xml ./
+COPY src/ ./src/
 RUN mvn clean package -DskipTests
 
-# Stage 2: Run the application in a lightweight JDK container
-FROM eclipse-temurin:17-jre-alpine
-
-# Set the working directory inside the container
+# Stage 3: Create the final image
+FROM openjdk:17-jdk-slim
 WORKDIR /app
 
-# Copy the jar file from the previous build stage
-COPY --from=build /app/preschool/target/*.jar app.jar
+# Copy the built backend and frontend
+COPY --from=backend-build /app/target/*.jar app.jar
+COPY --from=frontend-build /app/dist ./public
 
-# Expose the port your Spring Boot application will run on (default is 8080)
+# Expose the application port
 EXPOSE 8080
 
-# Command to run the jar file
+# Run the backend application
 ENTRYPOINT ["java", "-jar", "app.jar"]
+
 
 
 
