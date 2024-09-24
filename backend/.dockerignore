@@ -1,0 +1,20 @@
+# Ignore node_modules (for both frontend and backend if present)
+node_modules/
+
+# Ignore build output (this applies to both frontend and backend)
+build/
+
+# Ignore Git directory
+.git/
+
+# Ignore logs and temp files
+*.log
+*.tmp
+
+# Ignore environment files (if any)
+.env
+
+# Ignore IDE/editor specific files
+.vscode/
+.idea/
+
