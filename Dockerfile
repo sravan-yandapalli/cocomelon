@@ -5,11 +5,12 @@ FROM maven:3.8.4-openjdk-17 AS build
 WORKDIR /app
 
 # Copy the pom.xml file and download the dependencies
-COPY backend/preschool/pom.xml ./    
+COPY backend/preschool/pom.xml ./
 RUN mvn dependency:go-offline -B
 
 # Copy the rest of the project files
-COPY backend/preschool/src ./src      
+COPY backend/preschool/src ./src
+
 # Package the Spring Boot application
 RUN mvn clean package -DskipTests
 
@@ -27,5 +28,6 @@ EXPOSE 8080
 
 # Command to run the jar file
 ENTRYPOINT ["java", "-jar", "app.jar"]
+
 
 

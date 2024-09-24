@@ -1,0 +1,8 @@
+target/
+*.log
+*.tmp
+*.class
+node_modules/
+dist/
+.git/
+.vscode/
