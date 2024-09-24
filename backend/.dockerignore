@@ -1,20 +1,13 @@
-# Ignore node_modules (for both frontend and backend if present)
-node_modules/
+# Ignore Maven target directories
+target/
 
-# Ignore build output (this applies to both frontend and backend)
-build/
-
-# Ignore Git directory
-.git/
-
-# Ignore logs and temp files
+# Ignore other files not needed for the build
 *.log
 *.tmp
-
-# Ignore environment files (if any)
-.env
-
-# Ignore IDE/editor specific files
+*.class
+node_modules/
+dist/
+.git/
 .vscode/
-.idea/
+
 
